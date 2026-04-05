@@ -4022,66 +4022,70 @@ body.is-loaded .hero__scroll-indicator {
   margin-top: var(--s-md);
 }
 
-/* Masonry風グリッド（CSS Grid auto-rows） */
+/* Pinterest風 Masonry — CSS columns 方式 */
 .recruit-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  gap: var(--s-sm);
-  /* 全体を右に少しオフセットして枠からはみ出す演出 */
+  column-count: 2;
+  column-gap: 12px;
   margin-right: clamp(-1.5rem, -5vw, -4rem);
 }
 
 .recruit-gallery__item {
+  break-inside: avoid;
+  margin-bottom: 12px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 4px;
+  position: relative;
 }
 
 .recruit-gallery__item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+  object-fit: cover;
   transition: transform 0.6s var(--ease-out-expo);
 }
 
 .recruit-gallery__item:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* 縦長アイテム（左列1番目 — 2行分） */
-.recruit-gallery__item--tall {
-  grid-row: span 2;
-}
-
+/* 縦長 — 自然な高さのまま */
 .recruit-gallery__item--tall img {
-  height: 100%;
-  min-height: 400px;
+  /* 自然な高さのまま */
 }
 
-/* 横長アイテム（下段 — 2列分） */
+/* 横長 — column-span: all で全幅に */
 .recruit-gallery__item--wide {
-  grid-column: span 2;
+  column-span: all;
+  margin-bottom: 12px;
 }
 
 .recruit-gallery__item--wide img {
-  height: clamp(180px, 25vw, 260px);
+  height: clamp(180px, 22vw, 280px);
+  object-fit: cover;
 }
 
-/* 通常アイテムの高さ */
-.recruit-gallery__item:not(.recruit-gallery__item--tall):not(.recruit-gallery__item--wide) img {
-  height: clamp(160px, 20vw, 230px);
+@media (min-width: 768px) {
+  .recruit-gallery {
+    column-count: 3;
+    column-gap: 16px;
+  }
+  .recruit-gallery__item {
+    margin-bottom: 16px;
+  }
+  .recruit-gallery__item--wide {
+    margin-bottom: 16px;
+  }
 }
 
 @media (max-width: 767px) {
   .recruit-gallery {
+    column-count: 2;
+    column-gap: 10px;
     margin-right: 0;
   }
-  .recruit-gallery__item--tall {
-    grid-row: span 1;
-  }
-  .recruit-gallery__item--tall img {
-    min-height: 220px;
+  .recruit-gallery__item {
+    margin-bottom: 10px;
   }
 }
 
@@ -4257,9 +4261,6 @@ body.is-loaded .hero__scroll-indicator {
   }
   .recruit-table th {
     width: 7rem;
-  }
-  .recruit-gallery {
-    gap: var(--s-md);
   }
 }
 
