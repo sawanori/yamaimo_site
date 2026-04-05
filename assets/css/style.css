@@ -119,6 +119,7 @@ body {
   line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img {
@@ -971,8 +972,9 @@ body.no-scroll {
 
 .hero--shop {
   min-height: auto;
-  height: 330px;
-  display: block;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background-size: cover !important;
   background-position: center !important;
@@ -981,19 +983,31 @@ body.no-scroll {
 @media (min-width: 768px) {
   .hero--shop {
     height: 780px;
+    display: block;
     background-size: auto !important;
     background-position: center 60px !important;
     overflow: visible;
   }
+
+  .hero--shop .hero__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: unset;
+    display: block;
+  }
 }
 
 .hero--shop .hero__inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   z-index: 2;
+  padding: var(--s-xl);
 }
 
 .hero--coming-soon {
@@ -1060,16 +1074,6 @@ body.no-scroll {
 
 .hero--shop .hero__overlay {
   background: rgba(0, 0, 0, 0.4);
-}
-
-.hero--shop .hero__inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
-  padding: var(--s-xl);
 }
 
 .hero--shop .hero__title,
@@ -1937,7 +1941,7 @@ body.no-scroll {
 .drink-section {
   padding: clamp(8rem, 14vw, 12rem) 0;
   background: var(--c-bg);
-  overflow: visible;
+  overflow: clip;
   position: relative;
 }
 
@@ -1994,7 +1998,7 @@ body.no-scroll {
 .floor-section {
   padding: var(--section-gap-md) 0 clamp(8rem, 14vw, 12rem);
   background: var(--c-bg-warm);
-  overflow: visible;
+  overflow: clip;
   position: relative;
 }
 
@@ -2832,9 +2836,12 @@ body.is-loaded .hero__scroll-indicator {
 }
 
 /* --- ヒーロー（hero--shop） --- */
-.hero--shop {
-  overflow: visible; /* NEWS absolute配置のため */
-  position: relative;
+/* overflow: visible はデスクトップ（768px以上）でのみ適用（NEWSの絶対配置のため） */
+@media (min-width: 768px) {
+  .hero--shop {
+    overflow: visible; /* NEWS absolute配置のため */
+    position: relative;
+  }
 }
 
 /* 背景とオーバーレイは確実に全面カバー */
@@ -2981,7 +2988,7 @@ body.is-loaded .hero__scroll-indicator {
   padding: 0;
   background: #fff;
   position: relative;
-  overflow: visible;
+  overflow: clip;
 }
 
 /* 縦ライン */
