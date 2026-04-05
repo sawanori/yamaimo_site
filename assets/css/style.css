@@ -3286,7 +3286,7 @@ body.is-loaded .hero__scroll-indicator {
 /* --- floor-section: 部分はみ出し + 重なり --- */
 .floor-section__top {
   position: relative;
-  margin-bottom: clamp(30px, 6vw, 50px);
+  margin-bottom: clamp(48px, 10vw, 80px);
 }
 
 .floor-section__main-img img {
@@ -3299,7 +3299,7 @@ body.is-loaded .hero__scroll-indicator {
   font-size: var(--fs-body);
   color: var(--c-text-light);
   line-height: var(--lh-relaxed);
-  margin-top: var(--s-lg);
+  margin-top: var(--s-xl);
 }
 
 .floor-section__bottom {
