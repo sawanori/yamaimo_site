@@ -3319,6 +3319,7 @@ body.is-loaded .hero__scroll-indicator {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: clamp(2rem, 4vw, 4rem);
   }
 
   .floor-section__main-img {
