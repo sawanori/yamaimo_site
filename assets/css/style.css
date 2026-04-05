@@ -94,6 +94,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -1727,7 +1728,7 @@ body.no-scroll {
 
 .recommend-swiper {
   padding: 0 clamp(1.5rem, 5vw, 4rem);
-  overflow: visible !important;
+  overflow: visible;
 }
 
 .recommend-swiper .swiper-wrapper {
@@ -2094,6 +2095,7 @@ body.no-scroll {
   padding: var(--section-gap-sm) 0 var(--section-gap-md);
   background: var(--c-bg);
   position: relative;
+  overflow: clip;
 }
 
 /* ACCESS: 左上にウォームライトのカラーブロック */
