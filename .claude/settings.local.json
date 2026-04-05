@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp /home/noritakasawada/project/yamaimo_site/files/SKILL.md /home/noritakasawada/project/yamaimo_site/.claude/skills/SKILL.md)",
+      "Bash(cp /home/noritakasawada/project/yamaimo_site/files/design-system.md /home/noritakasawada/project/yamaimo_site/.claude/skills/references/design-system.md)",
+      "Bash(cp /home/noritakasawada/project/yamaimo_site/files/site-structure.md /home/noritakasawada/project/yamaimo_site/.claude/skills/references/site-structure.md)",
+      "Bash(cp /home/noritakasawada/project/yamaimo_site/files/content-data.md /home/noritakasawada/project/yamaimo_site/.claude/skills/references/content-data.md)",
+      "Bash(cp /home/noritakasawada/project/yamaimo_site/files/interaction-spec.md /home/noritakasawada/project/yamaimo_site/.claude/skills/references/interaction-spec.md)",
+      "mcp__github__get_file_contents",
+      "Bash(gh api:*)",
+      "Read(//home/noritakasawada/.config/fish/functions/**)",
+      "Read(//home/noritakasawada/.config/fish/**)"
+    ]
+  }
+}
