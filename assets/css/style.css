@@ -710,15 +710,6 @@ ol {
   transition: color 0.3s var(--ease-out-expo);
 }
 
-.header__logo-text {
-  font-family: var(--f-serif);
-  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--c-text);
-  line-height: 1;
-}
-
 .header__logo:hover .header__logo-mark {
   color: var(--c-accent);
 }
