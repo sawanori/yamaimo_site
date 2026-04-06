@@ -947,35 +947,33 @@ body.no-scroll {
   flex-shrink: 0;
 }
 
-/* SP: 縦並びに変更 */
+/* SP: PCと同じ横並びを維持 */
 @media (max-width: 767px) {
   .hero {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
+    flex-direction: row;
+    height: clamp(350px, 70vh, 500px);
   }
 
   .hero__side {
-    width: 100%;
-    max-width: none;
-    min-width: auto;
-    padding: calc(60px + var(--s-xl)) var(--s-md) var(--s-lg);
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--s-xl);
-    height: auto;
+    width: 25%;
+    min-width: 70px;
+    max-width: 120px;
+    padding: calc(60px + var(--s-sm)) var(--s-xs) var(--s-sm);
   }
 
   .hero__title-vertical {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+    letter-spacing: 0.25em;
   }
 
   .hero__concept-vertical {
     margin-top: 0;
+    font-size: clamp(0.55rem, 1.8vw, 0.7rem);
   }
 
   .hero__bg-scroll {
-    min-height: 300px;
+    min-height: auto;
+    flex: 1;
   }
 
   .hero__scroll-indicator {
