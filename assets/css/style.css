@@ -865,7 +865,15 @@ body.no-scroll {
   height: clamp(450px, 80vh, 820px);
   display: flex;
   overflow: hidden;
-  margin-top: 80px;
+}
+
+/* ヘッダー分の余白をmainに確保（fixedヘッダー対策） */
+#mainContent {
+  padding-top: 80px;
+}
+
+.page-shop #mainContent {
+  padding-top: 92px;
 }
 
 .hero__side {
@@ -2786,16 +2794,18 @@ body.is-loaded .hero__scroll-indicator {
 /* --- ヘッダー ロゴ中央化（店舗ページ） --- */
 /* ハンバーガーのみヘッダー（店舗ページ） */
 .header--minimal {
-  background: transparent;
+  background: rgba(250, 250, 247, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: none;
   padding: 0;
 }
 
 .header--minimal.is-scrolled {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
+  background: rgba(250, 250, 247, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--c-border-light);
 }
 
 .header--minimal .header__inner {
@@ -2804,7 +2814,7 @@ body.is-loaded .hero__scroll-indicator {
 }
 
 .header--minimal .header__logo {
-  display: none;
+  display: flex;
 }
 
 .header--minimal .nav-toggle {
