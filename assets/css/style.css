@@ -863,6 +863,7 @@ body.no-scroll {
   height: clamp(450px, 80vh, 820px);
   display: flex;
   overflow: hidden;
+  margin-top: 60px;
 }
 
 .hero__side {
@@ -949,7 +950,7 @@ body.no-scroll {
     width: 25%;
     min-width: 70px;
     max-width: 120px;
-    padding: calc(60px + var(--s-sm)) var(--s-xs) var(--s-sm);
+    padding: var(--s-sm) var(--s-xs);
   }
 
   .hero__title-vertical {
