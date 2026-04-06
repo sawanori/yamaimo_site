@@ -351,8 +351,8 @@ ol {
 .brand-card {
   position: relative;
   display: block;
-  padding: 0 0 var(--s-xl);
-  margin-bottom: var(--s-xl);
+  padding: 0 0 var(--s-md);
+  margin-bottom: var(--s-md);
   min-height: auto;
 }
 
