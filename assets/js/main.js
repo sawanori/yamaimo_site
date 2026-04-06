@@ -437,3 +437,58 @@ function initSmoothScroll() {
     });
   });
 }
+
+
+// ── ギャラリーモーダル ──
+(function initGalleryModal() {
+  const modal = document.getElementById('galleryModal');
+  if (!modal) return;
+
+  const modalImg = document.getElementById('galleryModalImg');
+  const closeBtn = document.getElementById('galleryModalClose');
+  const backdrop = document.getElementById('galleryModalBackdrop');
+  const galleryItems = document.querySelectorAll('.recruit-gallery__item');
+
+  function openModal(src, alt) {
+    // 高解像度版のURLを生成（w=1200に変更）
+    const highResSrc = src.replace(/w=\d+/, 'w=1200').replace(/h=\d+/, 'h=900');
+    modalImg.src = highResSrc;
+    modalImg.alt = alt;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+    // 画像をリセット（次回表示の前フラッシュ防止）
+    setTimeout(function() {
+      if (!modal.classList.contains('is-open')) {
+        modalImg.src = '';
+      }
+    }, 300);
+  }
+
+  // 各ギャラリーアイテムにクリックイベント
+  galleryItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var img = item.querySelector('img');
+      if (img) openModal(img.src, img.alt);
+    });
+  });
+
+  // 閉じる: ×ボタン
+  closeBtn.addEventListener('click', closeModal);
+
+  // 閉じる: 背景クリック
+  backdrop.addEventListener('click', closeModal);
+
+  // 閉じる: Escキー
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();
