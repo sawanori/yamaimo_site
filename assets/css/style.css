@@ -3751,6 +3751,16 @@ body.is-loaded .hero__scroll-indicator {
   grid-template-columns: 1fr;
 }
 
+.recruit-shop-block--ltr .recruit-shop-block__visual {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .recruit-shop-block--ltr .recruit-shop-block__visual {
+    order: unset;
+  }
+}
+
 /* 写真左・テキスト右 */
 .recruit-shop-block--rtl {
   grid-template-columns: 1fr;
